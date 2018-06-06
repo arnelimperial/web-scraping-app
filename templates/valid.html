@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+{% include 'head.html' %}
+{% block title%}
+  Login Form
+{% endblock %}
+
+{% include 'header.html' %}
+
+{% block content %}
+{{ super() }}
+
+<div class="container mt-5 mb-0 pb-0">
+  <div class="text-info text-uppercase font-weight-bold">Login Form</div>
+  <div class="container border border-warning rounded mt-3 bg-secondary text-white">
+    {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="/valid" class="form-inline container mt-3 mb-3 px-2">
+      <dl>
+        {{ form.csrf_token }}
+        {{ render_field(form.email) }}
+        {{ render_field(form.password) }}
+        {{ render_field(form.remember) }}
+        <button type="submit" class="btn btn-info mt-3">Login</button>
+      </dl>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

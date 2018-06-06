@@ -1,0 +1,19 @@
+{% extends "bootstrap/base.html" %}
+{% include 'head.html' %}
+{% block title%}
+  Invalid Signup Page
+{% endblock %}
+
+{% include 'header.html' %}
+{% block content %}
+
+<div class="container mx-auto border border-danger bg-danger text-white mt-5 mb-0 py-4 px-3">
+  <div><i class="fa fa-frown-o py-2" style="font-size: 50px;"></i></div>
+  <h1>Sign-Up is not valid</h1>
+  <p>Please go to <a href="{{url_for('signup')}}">Sign-Up Page</a> again, enter the required fields and valid entries.</p>
+  <p>Thanks for your patience.</p>
+
+
+</div>
+
+{% endblock %}

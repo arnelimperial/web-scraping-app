@@ -1,0 +1,19 @@
+user = (form.username.data, form.email.data, form.password.data)
+    #return render_template('success.html', username1= y)
+    conn= sqlite3.connect('database.db')
+    c= conn.cursor()
+    c.execute("CREATE TABLE IF NOT EXISTS users(username VARCHAR, password VARCHAR)")
+    try:
+        with c:
+            c.execute("INSERT INTO users(username, password) VALUES(?, ?)", (y, y1))
+    except sqlite3.IntegrityError:
+        return render_template('taken.html')
+    finally:
+        conn.commit()
+        conn.close()
+        return render_template('success.html', username1= y)
+
+
+
+elif request.method == 'POST' and form.validate() == False:
+    return render_template('try.html')

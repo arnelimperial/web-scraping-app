@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %}
+{% include 'head.html' %}
+{% block title%}
+  Password/Username Taken Page
+{% endblock %}
+
+{% include 'header.html' %}
+{% block content %}
+
+<div class="container mx-auto border border-danger bg-warning rounded text-white mt-5 mb-0 py-4 px-3">
+  <div><i class="fa fa-frown-o py-2" style="font-size: 50px;"></i></div>
+  <h4>Sorry username or password is already taken.</h4>
+  <p>Please go to the <a href="{{url_for('signup')}}">Sig-up page again</a>. Thanks for your patience.</p>
+
+
+
+{% endblock %}

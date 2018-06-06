@@ -1,0 +1,25 @@
+{% extends "bootstrap/base.html" %}
+{% include 'head.html' %}
+{% block title%}
+  Success Page
+{% endblock %}
+
+{% include 'header.html' %}
+{% block content %}
+<div class="container mt-5 mb-0 px-5 pb-5">
+  <div class="container border border-warning bg-success py-2 px-2 text-white">
+    <div><i class="fa fa-thumbs-o-up" style="font-size: 25px;"></i></div>
+    <h4>Initial data submitted are valid.</h4>
+    <p>Please click this <a href="{{url_for('valid')}} ">link</a> to test if you username and password are unique in our database.</a></p>
+    <p>If you have a match, you will br redirected to Sign-up page to repeat the process of signing -up.</p>
+    <p>Successful data entries will be ask to link to Login page.</p>
+    <p>Thanks for your patience.</p>
+
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}

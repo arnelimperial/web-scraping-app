@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+
+{% include 'head.html' %}
+{% block title%}
+  Signup Form
+{% endblock %}
+
+{% include 'header.html' %}
+
+{% block content %}
+{{ super() }}
+<div class="container">
+  <div class="container mt-5 mb-0">
+    <div class="text-info text-uppercase font-weight-bold">Sign-Up Form</div>
+    <div class="container px-2 border border-warning rounded bg-secondary">
+      {% from "_formhelpers.html" import render_field %}
+      <form method="POST" action="/signup" class="sign-in text-white container mt-5 mb-5">
+        <dl>
+            {{ form.csrf_token }}
+            {{ render_field(form.username) }}
+            {{ render_field(form.email) }}
+            {{ render_field(form.password) }}
+            {{ render_field(form.confirm) }}
+            {{ render_field(form.accept_tos) }}
+          <input type=submit value="Sign-In" class="btn btn-info">
+        </dl>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "bootstrap/base.html" %}
+{% include 'head.html' %}
+{% block title%}
+  Dashboard
+{% endblock %}
+
+{% include 'header1.html' %}
+{% block content %}
+
+<div class="container my-5">
+  <div class="container">
+    <div class="container border border-warning rounded text-body bg-secondary px-2 py-2 text-white">
+      <h5>Hi! {{ z }} and have a nice day. <i class="fa fa-smile-o" style="font-size: 20px;"></i></h1>
+      <p>You can now play the app.</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="container bg-light py-4">
+
+  <form role="form" method='POST' action='/dashboard' id="form_web">
+    <div class="form-group">
+      Enter Website Url: <input type="text" onkeyup="sendFunc()" name="url" class="form-control" id="url-box1" placeholder="Enter URL..." style="max-width: 300px;" autofocus required>
+    </div>
+    <h6 id="web-url1" style="color: red;"></h6>
+
+  </div>
+
+
+
+  </form>
+
+  <br>
+  {% for error in errors %}
+    <h4>{{ error }}</h4>
+    {% endfor %}
+
+    <div id="x-btn" class="container py-2">
+        <button class="btn btn-light text-primary" onclick="form1()" type="button" data-toggle="collapse in" data-target="#dataForm" aria-expanded="false" aria-controls="dataForm">{{ v }} {{ match }}</button>
+
+    </div>
+
+    <div id="dataForm" class="collapse in container">
+
+      <div class="container card card-body bg-primary text-white">
+        <div>
+          <h6>List of Article tags:</h6>
+          <span>{{article}}</span>
+        </div>
+        <div>
+          <h6>List of a tags(href): </h6>
+          <div style="display:table;">{{ links }}</div>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+    {% block scripts %}
+      {{ super() }}
+      <script>
+      function sendFunc(){
+        var a = document.getElementById('form_web').submit();
+        var b = document.getElementById('url-box1').value;
+        var c= document.getElementById('web-url1').innerHTML = 'WEBITE URL -----> ' + b;
+      }
+    </script>
+    <script>
+    function form1(){
+      var e = document.getElementById('dataForm');
+      if (e.style.display === "table"){
+        e.style.display = "none";
+      }else{
+        e.style.display = "table";
+      }
+    }
+  </script>
+
+
+{% endblock %}
+
+{% endblock %}
